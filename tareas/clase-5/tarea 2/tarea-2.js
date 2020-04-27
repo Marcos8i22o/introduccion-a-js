@@ -22,7 +22,7 @@ const $botonResultados = document.querySelector('#resultados');
 
 $botonResultados.onclick = function(){
  
-  document.querySelector('#datos-usuario').value = obtenerDatosUsuario();
+  document.querySelector('#datos-usuario').textContent = obtenerDatosUsuario();
   
   mostrarCartelBienvenida();
   
@@ -44,6 +44,7 @@ function obtenerDatosUsuario(){
   const apellido = document.querySelector('#apellido').value;
   //Guarda edad-usuario
   const edad = Number(document.querySelector('#edad').value);
+  
 
   const resultado = `${primerNombre} ${segundoNombre} ${apellido} - ${edad} años`;
   
