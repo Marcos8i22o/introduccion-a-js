@@ -18,35 +18,46 @@ Ejemplo form:
 * */
 
 
+const primerNombre = '';
+let segundoNombre = '';
+const apellido = '';
+const edad = '';
+const resultado = '';
+
+
 const $botonResultados = document.querySelector('#resultados');
 
-$botonResultados.onclick = function(){
- 
-  document.querySelector('#datos-usuario').textContent = obtenerDatosUsuario();
+$botonResultados.onclick = function () {
+
+  document.querySelector('#datos-usuario').textContent = obtenerDatosUsuario(primerNombre, segundoNombre, apellido, edad, resultado);
+  
+  validarNombre(primerNombre);
+  validarNombre(segundoNombre);
+  validarNombre(apellido);
   
   mostrarCartelBienvenida();
-  
+
   return false;
 }
 
 
-function obtenerDatosUsuario(){
+function obtenerDatosUsuario(primerNombre,segundoNombre,apellido,edad,resultado){
   //Guarda nombre-usuario
-  const primerNombre = document.querySelector('#primer-nombre').value;
+  primerNombre = document.querySelector('#primer-nombre').value;
   
   //Si el campo segundo-nombre contiene un valor, se guarda
-  let segundoNombre = '';
+  
   if (document.querySelector('#segundo-nombre').value != '') {
     segundoNombre = document.querySelector('#segundo-nombre').value;
   } 
 
   //Guarda apellido-usuario
-  const apellido = document.querySelector('#apellido').value;
+  apellido = document.querySelector('#apellido').value;
   //Guarda edad-usuario
-  const edad = Number(document.querySelector('#edad').value);
+  edad = Number(document.querySelector('#edad').value);
   
 
-  const resultado = `${primerNombre} ${segundoNombre} ${apellido} - ${edad} años`;
+  resultado = `${primerNombre} ${segundoNombre} ${apellido} - ${edad} años`;
   
   return resultado;
 }
@@ -56,4 +67,16 @@ function mostrarCartelBienvenida() {
   document.querySelector('h1').className = '';
   document.querySelector('h1').textContent = `Bienvenido, ${nombreUsuario}!`;
   
+}
+
+//Validaciones
+
+function validarNombre(nombre) {
+  if (nombre.length === 0) {
+    return "Este campo debe tener al menos un caracter";
+  }
+
+  if (nombre.length >= 50) {
+    return "Este campo debe tener menos de cincuenta caracteres";
+  }
 }
