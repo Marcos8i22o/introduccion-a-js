@@ -10,4 +10,13 @@ function probarValidarNombre() {
 
 }
 
-probarValidarNombre()
+function probarValidarEdad() {
+    console.assert(
+        validarEdad(-1) === "Por favor, ingrese un número válido",
+        "validarEdad no validó que el número sea válido",
+         
+    )
+}
+
+probarValidarNombre();
+probarValidarEdad();

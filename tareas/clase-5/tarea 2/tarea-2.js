@@ -19,7 +19,7 @@ Ejemplo form:
 
 
 const primerNombre = '';
-let segundoNombre = '';
+const segundoNombre = '';
 const apellido = '';
 const edad = '';
 const resultado = '';
@@ -34,6 +34,7 @@ $botonResultados.onclick = function () {
   validarNombre(primerNombre);
   validarNombre(segundoNombre);
   validarNombre(apellido);
+  validarEdad(edad);
   
   mostrarCartelBienvenida();
 
@@ -79,4 +80,13 @@ function validarNombre(nombre) {
   if (nombre.length >= 50) {
     return "Este campo debe tener menos de cincuenta caracteres";
   }
+}
+
+
+function validarEdad(edad) {
+  if (edad <= 0) {
+    return "Por favor, ingrese un número válido";
+  }
+
+  return '';
 }
