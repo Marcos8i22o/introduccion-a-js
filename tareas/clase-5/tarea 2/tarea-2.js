@@ -80,6 +80,9 @@ function validarNombre(nombre) {
   if (nombre.length >= 50) {
     return "Este campo debe tener menos de cincuenta caracteres";
   }
+
+
+  return '';
 }
 
 
@@ -87,6 +90,7 @@ function validarEdad(edad) {
   if (edad <= 0) {
     return "Por favor, ingrese un número válido";
   }
+
 
   return '';
 }
